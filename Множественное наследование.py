@@ -25,7 +25,7 @@ class Pegasus(Horse, Eagle):
         self.run(dx)
         self.fly(dy)
 
-    def get_pos(self, dx, dy):
+    def get_pos(self):
         return (self.x_distance,
                 self.y_distance)
 
