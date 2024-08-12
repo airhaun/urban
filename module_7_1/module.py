@@ -16,16 +16,20 @@ class Shop:
 
     def get_products(self):
         file = open(self.__file_name, 'r')
-        return file.read().strip()
+        products = file.read()
+        file.close()
+        return products
 
     def add(self, *products):
-        existing_products = self.get_products().splitlines()
+        existing_products = self.get_products()
         file = open(self.__file_name, 'a')
         for product in products:
             if product.name in existing_products:
                 print(f'Продукт {product.name} уже есть в магазине')
             else:
+                existing_products += str(product.name)
                 file.write(str(product) + '\n')
+
 
 s1 = Shop()
 p1 = Product('Potato', 50.5, 'Vegetables')
